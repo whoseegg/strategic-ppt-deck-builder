@@ -8,6 +8,7 @@
 4. Page specification
 5. Presentation-time control
 6. Planning quality gate
+7. Review and approval gates
 
 ## 1. Intake and source analysis
 
@@ -124,3 +125,73 @@ Before production, verify:
 - Required exact assets are identified
 - Missing-source requests are precise
 - Every page can be reconstructed as editable layers
+
+## 7. Review and approval gates
+
+Use the following checkpoints in review-gated mode:
+
+### Gate 1: Strategic direction
+
+Present:
+
+- 발표 목적
+- 핵심 대상
+- 최종 의사결정
+- 핵심 문제
+- 제안 가치
+- 설득 전략
+- 전체 스토리라인
+- 필수 근거와 주요 가정
+
+Ask one decision question with these choices:
+
+- 승인 후 페이지네이션 진행
+- 부분 수정 후 재검토
+- 전략 구조 재설계
+
+### Gate 2: Pagination
+
+Present the complete page map and total speaking-time estimate.
+
+Ask one decision question with these choices:
+
+- 승인 후 페이지별 세부 기획 진행
+- 페이지 추가·삭제 후 재검토
+- 순서와 설득 흐름 재구성
+
+### Gate 3: Visual style
+
+Before full slide-image generation, present three to four style directions. Pair one cover and one representative content-page concept in each direction when possible.
+
+Include:
+
+- 컬러 팔레트
+- 한글 폰트와 위계
+- 헤더·푸터·페이지 번호
+- 로고 배치
+- 도표·아이콘·인포그래픽 언어
+- 예상 청중 인상
+
+Ask the user to select one direction or request a partial adjustment.
+
+### Gate 4: Pilot slides
+
+Generate two to three representative pages using the selected style:
+
+- 표지
+- 핵심 인포그래픽 장표
+- 복합 도표·아키텍처 장표
+
+Ask whether to expand the selected system, adjust it, or replace it.
+
+### Gate 5: Full slide images
+
+After full-deck image generation and correction, present the ordered images and a concise QA summary.
+
+Ask whether to:
+
+- Approve all images and start editable PPTX reconstruction
+- Revise specified pages
+- Apply a deck-wide refinement and recheck
+
+Treat a standalone `진행` as approval of the current gate only. Skip the remaining gates only after an explicit request for autonomous or uninterrupted completion.
