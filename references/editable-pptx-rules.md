@@ -5,9 +5,10 @@
 1. Reconstruction objective
 2. Object mapping
 3. Common slide system
-4. Hybrid-image rules
-5. Authoring workflow
-6. Verification and handoff
+4. Typography implementation
+5. Hybrid-image rules
+6. Authoring workflow
+7. Verification and handoff
 
 ## 1. Reconstruction objective
 
@@ -52,7 +53,30 @@ Use the same coordinates for equivalent elements on every page.
 
 Create all pages from one shared set of helper functions or master-like constants when programmatic authoring is used.
 
-## 4. Hybrid-image rules
+## 4. Typography implementation
+
+Use exactly these font faces:
+
+- Slide title and subtitle: `Pretendard ExtraBold`
+- Body copy, labels, tables, charts, captions, sources, footnotes, page numbers, and all other text: `Pretendard`
+
+Never use PowerPoint's built-in Bold property.
+
+- Set every text shape and every rich-text run to `bold: false`, or omit the bold property only when the runtime guarantees that no master, placeholder, or inherited style applies bold
+- Never set `bold: true`
+- Do not use `Pretendard Bold`, `Pretendard SemiBold`, another weight face, font-weight simulation, or synthetic emphasis
+- Create emphasis through font size, color, spacing, alignment, placement, or a separate shape
+- Keep the font face constant inside each text role and do not mix regular and ExtraBold runs inside body paragraphs
+- Use `fontFace: "Pretendard ExtraBold"` with `bold: false` for titles and subtitles in programmatic authoring
+- Use `fontFace: "Pretendard"` with `bold: false` for every other text object in programmatic authoring
+
+Use the approved deck-wide font-size scale. Adjust size rather than weight, but do not reduce body, label, caption, or source text below the approved legibility minimum to fit excessive copy.
+
+Before authoring, verify that both exact font faces are available in the runtime. If either font is unavailable, do not substitute silently; pause and resolve the font installation or obtain the required font asset.
+
+After PPTX export, inspect the OOXML package and reject the file if any text property in slides, layouts, or masters contains built-in bold such as `b="1"` or `b="true"`. Correct the source objects, export again, and repeat the scan.
+
+## 5. Hybrid-image rules
 
 - Crop source slide images outside the PPTX when exact image-crop behavior is unreliable
 - Use tight transparent crops for logos and cutout visuals
@@ -62,7 +86,7 @@ Create all pages from one shared set of helper functions or master-like constant
 - Place complex image objects behind native labels and callouts when editability benefits from separation
 - State the rasterized elements in the final handoff
 
-## 5. Authoring workflow
+## 6. Authoring workflow
 
 Use the applicable `Presentations` skill and its supported authoring runtime.
 
@@ -76,16 +100,20 @@ Use the applicable `Presentations` skill and its supported authoring runtime.
 8. Render every exported slide
 9. Compare the rendered PPTX with the approved slide image
 10. Correct layout, font, crop, overlap, and fidelity issues
-11. Run the available overflow or presentation tests
-12. Deliver only after all tests pass
+11. Scan the PPTX text properties for prohibited built-in bold attributes
+12. Run the available overflow or presentation tests
+13. Deliver only after all tests pass
 
 Do not use unsupported presentation libraries when the applicable presentation skill mandates a specific toolchain.
 
-## 6. Verification and handoff
+## 7. Verification and handoff
 
 Inspect every slide, not only a montage:
 
 - Text presence, Korean font rendering, wrapping, and overflow
+- `Pretendard ExtraBold` applied to every title and subtitle with built-in Bold disabled
+- Regular `Pretendard` applied to every other text element with built-in Bold disabled
+- No prohibited built-in bold attribute in slide, layout, or master text properties
 - Object boundaries, alignment, spacing, and safe margins
 - Logo fidelity and proportions
 - Crop boundaries and unintended duplicate content
