@@ -66,6 +66,8 @@ Repair and recheck defects before moving to the next pass.
 - Korean text and figures match the approved specification
 - Logo and source-asset fidelity is preserved
 - Header, footer, source, and page number match the deck system
+- Titles and subtitles use the `Pretendard ExtraBold` appearance
+- All other text uses regular `Pretendard` without synthetic bold
 - Horizontal 16:9 ratio confirmed
 
 ## 3. PPTX gate
@@ -77,6 +79,9 @@ Repair and recheck defects before moving to the next pass.
 - Complex visuals are separate movable image objects
 - No full-slide image is the only editable object unless explicitly requested
 - Common coordinates and styles are consistent
+- Titles and subtitles use `Pretendard ExtraBold` with the PowerPoint Bold property disabled
+- All other text uses `Pretendard` with the PowerPoint Bold property disabled
+- PPTX OOXML inspection confirms no text property uses `b="1"` or `b="true"`
 - Every exported slide renders successfully
 - Overflow test passes
 - Full-size inspection completed for every page
