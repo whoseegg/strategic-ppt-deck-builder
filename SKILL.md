@@ -194,6 +194,9 @@ Unless the user provides another direction:
 - Use teal or blue for structure and one limited warm accent for decisions or risks
 - Keep strong grid alignment and generous whitespace
 - Maintain high-contrast Korean typography
+- Use `Pretendard ExtraBold` for every slide title and subtitle
+- Use `Pretendard` for body copy, labels, tables, charts, captions, sources, page numbers, and all other text
+- Never use PowerPoint's built-in Bold property or synthetic bold; create hierarchy through the approved font face, font size, color, spacing, and placement
 - Use consistent headers, footers, page numbers, source notes, logo positions, corner radii, strokes, and icon families
 - Avoid arbitrary gradients, excessive shadows, floating decoration, fake dashboards, and repetitive card walls
 
