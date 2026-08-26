@@ -1,0 +1,14 @@
+interface:
+  display_name: 전략형 PPT 통합 제작
+  short_description: 기획부터 이미지와 편집형 PPTX까지 통합 제작
+  default_prompt: Use $build-strategic-ppt-decks to 기획부터 슬라이드 이미지와 편집 가능한 PPTX까지 완성해
+    주세요
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
