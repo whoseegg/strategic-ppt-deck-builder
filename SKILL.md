@@ -1,6 +1,6 @@
 ---
 name: build-strategic-ppt-decks
-description: "Create Korean strategic proposals, IR decks, business plans, government-support presentations, consulting proposals, product introductions, and pitch materials through a fixed end-to-end workflow: source analysis, full-deck planning, pagination, page-level planning, consistent 16:9 slide-image generation, editable PPTX reconstruction, and rendered quality assurance. Use when the user requests a complete presentation workflow, asks to proceed in the established strategic PPT style, wants generated slide images converted into a highly editable PPTX, or refers to the previous proposal, IR, image-first, or editable-deck production method."
+description: "Create Korean strategic proposals, IR decks, business plans, government-support presentations, consulting proposals, product introductions, and pitch materials through a fixed end-to-end workflow: source analysis, full-deck planning, pagination, page-level planning, user approval checkpoints, consistent 16:9 slide-image generation, editable PPTX reconstruction, and rendered quality assurance. Use when the user requests a complete presentation workflow, asks to proceed in the established strategic PPT style, wants generated slide images converted into a highly editable PPTX, or refers to the previous proposal, IR, image-first, review-gated, or editable-deck production method."
 ---
 
 # Build Strategic PPT Decks
@@ -12,27 +12,61 @@ Create one coherent strategic deck from source analysis through slide images and
 Read only the references needed for the current stage, but read each selected file completely before acting:
 
 - Stages 1 to 3: [references/planning-workflow.md](references/planning-workflow.md)
-- Stage 4: [references/visual-guidelines.md](references/visual-guidelines.md)
-- Stage 5: [references/editable-pptx-rules.md](references/editable-pptx-rules.md)
+- Stages 4 to 5: [references/visual-guidelines.md](references/visual-guidelines.md)
+- Stage 6: [references/editable-pptx-rules.md](references/editable-pptx-rules.md)
 - Final delivery: [references/quality-checklist.md](references/quality-checklist.md)
 
 When available, also use the established `build-strategic-ppt-images` skill for image-production details and the `Presentations` skill for PPTX authoring and verification. Follow their file-format and tool rules without weakening this skill's workflow.
 
 ## Default operating mode
 
-Use the complete workflow unless the user explicitly limits the scope:
+Use review-gated mode by default and complete the workflow in approved increments unless the user explicitly requests autonomous completion:
 
 1. Analyze and enhance the full content
 2. Establish pagination and narrative sequence
 3. Specify every page in image-ready detail
-4. Generate the full slide-image deck
-5. Reconstruct and verify an editable PPTX
+4. Propose visual styles and generate approved pilot slides
+5. Generate the full slide-image deck
+6. Reconstruct and verify an editable PPTX
 
-If the user says not to start production yet, complete only the requested planning stages. If the user requests images only, stop after stage 4. If the user requests an editable PPTX from completed images, begin at stage 5 after confirming all source images and brand assets are available.
+If the user says not to start production yet, complete only the requested planning stages. If the user requests images only, stop after stage 5. If the user requests an editable PPTX from completed images, begin at stage 6 after confirming all source images and brand assets are available.
+
+## Review-gated mode
+
+Pause at the following approval gates unless the user explicitly selects autonomous mode:
+
+1. Strategic direction approval
+   - Present the purpose, audience, decision objective, core problem, proposed value, persuasion logic, storyline, missing proof, and major assumptions
+   - Ask whether to approve, partially revise, or restructure the strategy
+2. Pagination approval
+   - Present the complete page map with page role, main message, evidence, visualization, required source, and speaking time
+   - Ask whether to approve, add or remove pages, or reorder the narrative
+3. Visual-style approval
+   - Propose three to four distinct but professionally viable style directions before full image generation
+   - Show a cover and one representative content page together for each direction when image generation is available
+   - Explain the palette, typography, grid, diagram language, logo treatment, and intended audience impression
+   - Ask the user to select one direction or request a partial adjustment
+4. Pilot-slide approval
+   - Generate two to three representative slides using the selected style, including a cover, an infographic page, and a complex diagram or architecture page when applicable
+   - Ask whether to expand the style, adjust it, or replace it
+5. Full-image approval
+   - Present the checked full slide-image deck and summarize corrected defects
+   - Ask whether to approve all images, revise specified pages, or perform a deck-wide refinement
+   - Start editable PPTX reconstruction only after this approval
+
+At every gate:
+
+- Ask one compact decision question at a time
+- Offer two to three clear choices plus free-form revision when the interface supports it
+- Treat `진행`, `승인`, or an equivalent response as approval of the current gate only
+- Continue only to the next approval gate after current-gate approval
+- Resolve minor details autonomously and ask only about choices that materially affect strategy, pagination, style, fidelity, or evidence
+- Preserve approved decisions unless the user explicitly reopens them
+- Summarize material changes before requesting approval again
 
 ## Autonomy rule
 
-When the user approves the entire deck, says `진행`, requests all pages, or asks for autonomous completion:
+Switch from review-gated mode to autonomous mode only when the user explicitly approves the entire remaining workflow or says phrases such as `전체 진행`, `중간 확인 없이 진행`, `마지막까지 자율 진행`, or `전체 장표 일괄 제작`:
 
 - Continue through the final requested stage without page-by-page confirmation
 - Preserve the sequence internally even when intermediate plans are not shown
@@ -40,6 +74,8 @@ When the user approves the entire deck, says `진행`, requests all pages, or as
 - Use labeled placeholders for missing non-critical evidence
 - Pause only when a missing choice or asset materially changes the entire deck or makes exact fidelity impossible
 - Keep progress updates brief
+
+Do not interpret a standalone `진행` response at an approval gate as authorization to skip all remaining gates.
 
 ## Stage 1: Full-content planning
 
@@ -53,7 +89,7 @@ Analyze all supplied documents, images, tables, logos, prior plans, and conversa
 - Preserve the user's original intent while improving clarity and order
 - Do not invent official proof, contracts, certifications, customer results, or exact financial values
 
-Produce a concise strategic brief before pagination when the user requests planning review.
+Produce a concise strategic brief before pagination and request strategic-direction approval in review-gated mode.
 
 ## Stage 2: Pagination
 
@@ -68,6 +104,8 @@ Assign one strategic job and one takeaway to every page.
 - Define page number, role, main message, key evidence, visualization, and required source
 
 Do not finalize visual design before the page map is logically complete.
+
+Present the completed page map and request pagination approval in review-gated mode.
 
 ## Stage 3: Page-level planning
 
@@ -84,9 +122,23 @@ Convert every page into an image-ready production specification.
 
 Use the page-plan format in `planning-workflow.md`.
 
-## Stage 4: Slide-image generation
+After page-level planning, proceed to visual-style selection and pilot slides according to the review gates before creating the full image deck.
 
-Generate horizontal 16:9 slide images only after the page specifications are sufficiently concrete or the user has approved autonomous production.
+## Stage 4: Visual-style selection and pilot slides
+
+Propose the deck-wide visual system before full slide-image generation.
+
+- Create three to four distinct professional style directions
+- Pair one cover and one representative content-page concept for each direction when possible
+- Keep each direction feasible for consistent full-deck generation and editable PPTX reconstruction
+- Explain the palette, typography, grid, header, footer, logo treatment, diagram language, and audience impression
+- Generate two to three representative pilot slides after the user selects a direction
+- Inspect the pilots for text legibility, information density, brand fidelity, visual continuity, and reconstruction feasibility
+- Request visual-style and pilot-slide approval in review-gated mode
+
+## Stage 5: Slide-image generation
+
+Generate horizontal 16:9 slide images only after the page specifications are sufficiently concrete and the style and pilot gates are approved, or after the user has explicitly selected autonomous mode.
 
 - Use image generation for the raster slide pages
 - Carry forward one deck-wide visual system across every page
@@ -99,7 +151,9 @@ Generate horizontal 16:9 slide images only after the page specifications are suf
 
 Do not present unchecked images as verified.
 
-## Stage 5: Editable PPTX reconstruction
+Request full-image approval after correction and before editable PPTX reconstruction in review-gated mode.
+
+## Stage 6: Editable PPTX reconstruction
 
 Use the approved slide images as visual references, not as full-slide flattened backgrounds by default.
 
@@ -191,5 +245,7 @@ Interpret these phrases as triggers for the complete established workflow:
 - `IR 자료 이미지부터 PPTX까지 제작`
 - `이미지 생성 후 편집 가능한 PPT로 전환`
 - `방금 작업 방식으로 진행`
+- `중간 검토 방식으로 진행`
+- `전략·페이지·스타일 승인 후 진행`
 
-If the user says `기획 고도화`, provide planning only unless production is also requested. If the user says `진행`, continue from the latest approved stage without restarting.
+If the user says `기획 고도화`, provide planning only unless production is also requested. If the user says `진행` in review-gated mode, approve the current gate and continue only to the next gate without restarting. If the user explicitly requests autonomous completion, continue through the final requested stage.
