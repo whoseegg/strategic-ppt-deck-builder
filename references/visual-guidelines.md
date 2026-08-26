@@ -3,11 +3,12 @@
 ## Contents
 
 1. Deck-wide system
-2. Page anatomy
-3. Visualization selection
-4. Asset fidelity
-5. Image-generation workflow
-6. Post-generation inspection
+2. Typography system
+3. Page anatomy
+4. Visualization selection
+5. Asset fidelity
+6. Image-generation workflow
+7. Post-generation inspection
 
 ## 1. Deck-wide system
 
@@ -22,7 +23,33 @@ Define one visual system before generating the first page:
 
 Carry these values forward unchanged unless a deliberate section-divider variation is required.
 
-## 2. Page anatomy
+## 2. Typography system
+
+Use only these two text font faces across the deck:
+
+- Slide title and subtitle: `Pretendard ExtraBold`
+- Body copy, section labels, tables, chart labels, callouts, captions, source notes, footnotes, page numbers, and every other text element: `Pretendard`
+
+Do not use `Pretendard Bold`, `Pretendard SemiBold`, another weight variant, synthetic bold, or an application's built-in Bold control.
+
+Build hierarchy through font size, color, spacing, alignment, and placement instead of additional font weights.
+
+Use this default size system and adjust within the range only when content density or presentation distance requires it:
+
+- Cover title: 34 to 44 pt
+- Slide title: 26 to 32 pt
+- Subtitle: 17 to 21 pt
+- Key number: 28 to 40 pt
+- Body copy: 14 to 18 pt
+- Labels and table text: 12 to 15 pt
+- Captions and source notes: 8 to 11 pt
+- Page number: 9 to 12 pt
+
+Keep equivalent elements at the same size throughout the deck. Do not shrink one page below the approved minimum to accommodate excessive copy; shorten or restructure the content instead.
+
+For generated slide images, explicitly request the approved typeface appearance and reject synthetic-bold or mixed-weight results. Treat the editable PPTX typography as the exact implementation of the font rule.
+
+## 3. Page anatomy
 
 Preferred structure:
 
@@ -35,7 +62,7 @@ Keep essential content at least 5 percent from every edge. Keep footer content a
 
 Avoid repeating five equal rounded cards when the ideas have a different relationship.
 
-## 3. Visualization selection
+## 4. Visualization selection
 
 Choose by relationship:
 
@@ -52,7 +79,7 @@ Choose by relationship:
 
 Use exact charts for exact data. Do not use generative imagery for precise numeric charts or diagrams that must remain accurate.
 
-## 4. Asset fidelity
+## 5. Asset fidelity
 
 - Preserve supplied brand marks without recoloring, redrawing, stretching, or adding effects
 - Preserve real faces, body proportions, product forms, document evidence, seals, and screenshots when fidelity is requested
@@ -61,7 +88,7 @@ Use exact charts for exact data. Do not use generative imagery for precise numer
 - Do not fabricate official proof
 - Use labeled placeholders for missing evidence
 
-## 5. Image-generation workflow
+## 6. Image-generation workflow
 
 For every page:
 
@@ -75,7 +102,7 @@ For every page:
 
 For corrections, modify only the requested elements unless broader rework is necessary to remove a defect.
 
-## 6. Post-generation inspection
+## 7. Post-generation inspection
 
 Check every generated page at practical presentation size and full resolution:
 
@@ -86,6 +113,8 @@ Check every generated page at practical presentation size and full resolution:
 - Cropping, edge collisions, overlap, distorted logos, altered faces, and changed product forms
 - Horizontal 16:9 ratio and safe margins
 - Header, footer, page number, source note, logo row, and typography consistency
+- `Pretendard ExtraBold` appearance on titles and subtitles
+- Regular `Pretendard` appearance on every other text element without synthetic bold
 - Visual continuity with the adjacent pages
 
 Correct every detected issue and inspect the corrected image again.
